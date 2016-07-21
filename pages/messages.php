@@ -1,8 +1,6 @@
 <form action="dosendmsg.php" method="POST" onsubmit="setTimeout(function () {
             $('#msgsendbox').val('');
-            $.get('dogetmsgs.php', function (data) {
-                $('#messagedispdiv').html(data);
-            });
+            refreshMsgs();
         }, 100);">
     <div class="input-group">
         <input type="text" id="msgsendbox" name="msg" class="form-control" placeholder="Post message" autocomplete="off">
@@ -19,3 +17,13 @@
     ?>
 </div>
 <br />
+<script>
+    function refreshMsgs() {
+        $.get('dogetmsgs.php', function (data) {
+            $('#messagedispdiv').html(data);
+        });
+    }
+    setInterval(function () {
+        refreshMsgs();
+    }, 5 * 1000);
+</script>
