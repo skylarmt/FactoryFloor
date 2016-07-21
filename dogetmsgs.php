@@ -23,6 +23,18 @@ foreach ($messages as $msg) {
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6" style="text-align: right;">
                     <i class='fa fa-clock-o'></i> <?php echo date("F j, Y, g:i a", strtotime($msg['messagedate'])); ?>
+                    <?php
+                    if (userrolefromid($_SESSION['userid']) > 0) {
+                        ?>
+                        <form style="display: inline-block;"
+                              action="/dodeletemsg.php" method="GET"
+                              onsubmit="$('#delmsgbtn<?php echo $msg['messageid']; ?>').prop('disabled', true);">
+                            <input type="hidden" name="msgid" value="<?php echo $msg['messageid']; ?>" />
+                            <button type="submit" id="delmsgbtn<?php echo $msg['messageid']; ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                        </form>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
