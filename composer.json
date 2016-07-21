@@ -1,0 +1,13 @@
+{
+    "name": "netsyms/factory-worker-tasks",
+    "description": "Task assignment and performance tracking system for workers.",
+    "require": {
+        "catfan/medoo": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "Skylar Ittner",
+            "email": "admin@netsyms.com"
+        }
+    ]
+}
