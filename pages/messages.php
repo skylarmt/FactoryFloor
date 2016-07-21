@@ -1,3 +1,4 @@
+<div style="max-height: 600px; overflow-y: scroll;">
 <form action="dosendmsg.php" method="POST" onsubmit="setTimeout(function () {
             $('#msgsendbox').val('');
             refreshMsgs();
@@ -11,7 +12,7 @@
 </form>
 <!--<p><i class="fa fa-info-circle"></i> Messages are shown to all users.  Think of it as a bulletin board or whiteboard.</p>-->
 <br />
-<div id="messagedispdiv" style="max-height: 500px; overflow-y: scroll;">
+<div id="messagedispdiv">
     <?php
     include 'dogetmsgs.php';
     ?>
@@ -27,3 +28,4 @@
         refreshMsgs();
     }, 5 * 1000);
 </script>
+</div>

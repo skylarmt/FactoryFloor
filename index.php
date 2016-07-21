@@ -10,6 +10,7 @@ redirectifnotloggedin();
         <title>FactoryFloor</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/app.css">
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </head>
