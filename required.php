@@ -64,6 +64,11 @@ function usernamefromid($id) {
     return $database->select('users', 'username', ['userid' => $id])[0];
 }
 
+function useridexists($id) {
+    global $database;
+    return $database->has('users', 'username', ['userid' => $id]);
+}
+
 function realnamefromid($id) {
     global $database;
     return $database->select('users', 'realname', ['userid' => $id])[0];
@@ -83,4 +88,11 @@ function redirectifnotloggedin() {
         header('Location: /?action=login');
         die();
     }
+}
+
+/**
+ * http://stackoverflow.com/a/24401462/2534036
+ */
+function checkIsAValidDate($myDateString) {
+    return (bool) strtotime($myDateString);
 }

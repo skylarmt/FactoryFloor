@@ -3,15 +3,15 @@ require_once 'required.php';
 
 redirectifnotloggedin();
 
-$tasks = $database->select('assigned_tasks', ['[>]tasks' => ['taskid' => 'taskid']], '*', ["AND" => ['assigned_tasks.userid' => $_SESSION['userid'], 'assigned_tasks.statusid' => [0, 1, 3, 4]]]);
+$tasks = $database->select('assigned_tasks', ['[>]tasks' => ['taskid' => 'taskid']], '*', ["AND" => ['assigned_tasks.userid' => $_SESSION['userid'], 'assigned_tasks.statusid' => [0, 1, 3, 4], '#taskassignedon[<=]' => 'NOW()']]);
 if (count($tasks) > 0) {
     foreach ($tasks as $task) {
         $panelclass = 'panel-default';
-        if (strtotime($task['taskdueby']) - time() < 60 * 60 * 1) { // less than one hour till deadline
+        if (strtotime($task['taskdueby']) - time() < 0) { // deadline overdue
             $panelclass = 'panel-danger';
-        } else if (strtotime($task['taskdueby']) - time() < 60 * 60 * 3) { // less than three hours
+        } else if (strtotime($task['taskdueby']) - time() < 60 * 60 * 2) { // less than three hours
             $panelclass = 'panel-warning';
-        } else if (strtotime($task['taskdueby']) - time() < 60 * 60 * 8) { // less than eight hours
+        } else if (strtotime($task['taskdueby']) - time() < 60 * 60 * 6) { // less than eight hours
             $panelclass = 'panel-info';
         }
         echo "<div class='panel $panelclass'>"
@@ -30,21 +30,21 @@ if (count($tasks) > 0) {
         . "<div class='col-xs-12 col-sm-6 col-md-6'>"
         . "<i class='fa fa-clock-o'></i> Assigned: " . date("F j, Y, g:i a", strtotime($task['taskassignedon']))
         . "<br />"
-        . "<i class='fa fa-clock-o'></i> Due by: " . date("F j, Y, g:i a", strtotime($task['taskdueby']))
+        . "<i class='fa fa-clock-o'></i> Due by: " . ($task['taskdueby'] > 0 ? date("F j, Y, g:i a", strtotime($task['taskdueby'])) : "No due date")
         . "</div>"
         . "<div class='col-xs-12 col-sm-6 col-md-6'>"
         . "Actions:<br />";
         if ($task['statusid'] == 0) {
-            echo "<form action='task.php' method='POST' class='form-inline' style='display: inline-block;'>"
+            echo "<form action='task.php' method='POST' onsubmit='$(\"#starttaskbtn" . $task['taskid'] . "\").prop(\"disabled\", true);' class='form-inline' style='display: inline-block;'>"
             . "<input type='hidden' name='taskid' value='" . $task['taskid'] . "' />"
             . "<input type='hidden' name='action' value='start' />"
-            . "<button type='submit' class='btn btn-primary'><i class='fa fa-play'></i> Start</button>"
+            . "<button type='submit' id='starttaskbtn" . $task['taskid'] . "' class='btn btn-primary'><i class='fa fa-play'></i> Start</button>"
             . "</form>";
         } else if ($task['statusid'] == 1) {
-            echo "<form action='task.php' method='POST' class='form-inline' style='display: inline-block; padding-left: 5px;'>"
+            echo "<form action='task.php' method='POST' onsubmit='$(\"#finishtaskbtn" . $task['taskid'] . "\").prop(\"disabled\", true);' class='form-inline' style='display: inline-block; padding-left: 5px;'>"
             . "<input type='hidden' name='taskid' value='" . $task['taskid'] . "' />"
             . "<input type='hidden' name='action' value='finish' />"
-            . "<button type='submit' class='btn btn-success'><i class='fa fa-stop'></i> Finish</button>"
+            . "<button type='submit' id='finishtaskbtn" . $task['taskid'] . "' class='btn btn-success'><i class='fa fa-stop'></i> Finish</button>"
             . "</form>";
         }
         echo "</div>"
