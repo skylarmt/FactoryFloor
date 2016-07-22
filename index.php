@@ -13,6 +13,8 @@ redirectifnotloggedin();
         <link rel="stylesheet" href="css/app.css">
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/tinymce/tinymce.min.js"></script>
+        <script>tinymce.init({selector: 'textarea'});</script>
     </head>
     <body>
         <div class="container">
@@ -26,6 +28,9 @@ redirectifnotloggedin();
                     break;
                 case 'loggedout':
                     include 'pages/loggedout.php';
+                    break;
+                case 'edittask':
+                    include 'pages/edittask.php';
                     break;
                 case 'home':
                 case 'tasks':
