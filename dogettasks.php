@@ -7,7 +7,9 @@ $tasks = $database->select('assigned_tasks', ['[>]tasks' => ['taskid' => 'taskid
 if (count($tasks) > 0) {
     foreach ($tasks as $task) {
         $panelclass = 'panel-default';
-        if (strtotime($task['taskdueby']) - time() < 0) { // deadline overdue
+        if ($task['taskdueby'] == null) {
+            // This bit is just here to skip the rest of the branches if we need to
+        } else if (strtotime($task['taskdueby']) - time() < 0) { // deadline overdue
             $panelclass = 'panel-danger';
         } else if (strtotime($task['taskdueby']) - time() < 60 * 60 * 2) { // less than three hours
             $panelclass = 'panel-warning';

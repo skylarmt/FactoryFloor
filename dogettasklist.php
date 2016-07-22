@@ -13,6 +13,7 @@ if (count($tasks) > 0) {
         echo "<div class='panel panel-default'>"
         . "<div class='panel-heading'>"
         . "<h3 class='panel-title'>" . $task['tasktitle'];
+        // Pull in the status info if the task is assigned to someone
         if ($database->has('assigned_tasks', ['taskid' => $task['taskid']])) {
             $tass = $database->select('assigned_tasks', '*', ['taskid' => $task['taskid']])[0];
             echo "<span class='pull-right'>";
