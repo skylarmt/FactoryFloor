@@ -13,9 +13,29 @@ if (count($tasks) > 0) {
         echo "<div class='panel panel-default'>"
         . "<div class='panel-heading'>"
         . "<h3 class='panel-title'>" . $task['tasktitle'];
-//        if ($task['statusid'] == 1) {
-//            echo "<span class='pull-right'><i class='fa fa-play'></i> Started</span>";
-//        }
+        if ($database->has('assigned_tasks', ['taskid' => $task['taskid']])) {
+            $tass = $database->select('assigned_tasks', '*', ['taskid' => $task['taskid']])[0];
+            echo "<span class='pull-right'>";
+            echo "<i class='fa fa-user'></i> " . usernamefromid($tass['userid']) . "&nbsp;&nbsp;";
+            switch ($tass['statusid']) {
+                case 0:
+                    echo "<i class='fa fa-ellipsis-h'></i> Pending";
+                    break;
+                case 1:
+                    echo "<i class='fa fa-play'></i> Started";
+                    break;
+                case 2:
+                    echo "<i class='fa fa-check'></i> Finished";
+                    break;
+                case 3:
+                    echo "<i class='fa fa-pause'></i> Paused";
+                    break;
+                case 4:
+                    echo "<i class='fa fa-stop'></i> Problem";
+                    break;
+            }
+            echo "</span>";
+        }
         echo "</h3>"
         . "</div>"
         . "<div class='panel-body'>"
@@ -24,12 +44,12 @@ if (count($tasks) > 0) {
         . "<div class='panel-footer'>"
         . "<div class='row'>"
         . "<div class='col-xs-12 col-sm-8 col-md-8'>"
-        . "<i class='fa fa-clock-o'></i> Assigned: " . date("F j, Y, g:i a", strtotime($task['taskassignedon']))
+        . "<i class='fa fa-clock-o'></i> Assigned: " . ($task['taskassignedon'] > 0 ? date("F j, Y, g:i a", strtotime($task['taskassignedon'])) : "No assigned date")
         . "<br />"
-        . "<i class='fa fa-clock-o'></i> Due by: " . date("F j, Y, g:i a", strtotime($task['taskdueby']))
+        . "<i class='fa fa-clock-o'></i> Due by: " . ($task['taskdueby'] > 0 ? date("F j, Y, g:i a", strtotime($task['taskdueby'])) : "No due date")
         . "</div>"
         . "<div class='col-xs-12 col-sm-4 col-md-4'>"
-                . "<div class='pull-right'>";
+        . "<div class='pull-right'>";
         echo "<form action='/?action=edittask' method='POST' class='form-inline' style='display: inline-block;'>"
         . "<input type='hidden' name='taskid' value='" . $task['taskid'] . "' />"
         . "<input type='hidden' name='action' value='edit' />"
@@ -49,5 +69,5 @@ if (count($tasks) > 0) {
 } else {
     echo "<div class='alert alert-info'><i class='fa fa-check'></i> There aren't any tasks.  Be a boss and make some!</div>";
 }
+//var_dump($tasks);
 ?>
-<!--<pre><?php var_dump($tasks); ?></pre>-->
