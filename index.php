@@ -32,6 +32,9 @@ redirectifnotloggedin();
                 case 'edittask':
                     include 'pages/edittask.php';
                     break;
+                case 'edituser':
+                    include 'pages/edituser.php';
+                    break;
                 case 'home':
                 case 'tasks':
                 case 'tasklist':
