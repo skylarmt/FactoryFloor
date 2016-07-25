@@ -29,7 +29,7 @@ if (checkIsAValidDate($_POST['taskassignedon'])) {
 }
 if (checkIsAValidDate($_POST['taskdueby'])) {
     $duedate = date('Y-m-d H:i:s', strtotime($_POST['taskdueby']));
-    $database->update('tasks', ['taskassignedon' => $duedate], ['taskid' => $_POST['taskid']]);
+    $database->update('tasks', ['taskdueby' => $duedate], ['taskid' => $_POST['taskid']]);
 }
 if (!is_empty($_POST['assignedto']) && useridexists($_POST['assignedto'])) {
     if ($database->has('assigned_tasks', ['taskid' => $_POST['taskid']])) {
