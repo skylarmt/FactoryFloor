@@ -1,7 +1,8 @@
 <h1 class="page-header hidden-print">
     Pallets
     <span class="pull-right">
-        <a href="/?action=editpallet" class="btn btn-primary"><i class="fa fa-plus"></i> New Pallet</a>
+        <a href="/?action=editpallet" class="btn btn-primary"><i class="fa fa-plus"></i> New Pallet</a> 
+        <a href="/downloadpalletcsv.php" class="btn btn-info"><i class="fa fa-table"></i> Export CSV</a> 
     </span>
 </h1>
 <input type="text" id="palletsearchbox" class="form-control" placeholder="Type to search" />
@@ -10,11 +11,11 @@
     <thead>
         <tr>
             <th class="hidden-print">Actions</th>
-            <th>Pallet ID #</th>
+            <th>Number</th>
             <th>Items</th>
+            <th>Total Weight</th>
             <th>Pallet Weight</th>
             <th>Box Weight</th>
-            <th>Total Weight</th>
             <th>Date</th>
         </tr>
     </thead>
@@ -40,16 +41,19 @@
                 ?>
             </td>
             <td>
+                <?php echo $pallet['totalweight'] + 0;
+                echo " " . WEIGHT_UNIT_STRING;
+                ?>
+            </td>
+            <td>
                 <?php echo $pallet['palletweight'] + 0;
-                echo " " . WEIGHT_UNIT_STRING; ?>
+                echo " " . WEIGHT_UNIT_STRING;
+                ?>
             </td>
             <td>
     <?php echo $pallet['boxweight'] + 0;
-    echo " " . WEIGHT_UNIT_STRING; ?>
-            </td>
-            <td>
-                <?php echo $pallet['totalweight'] + 0;
-                echo " " . WEIGHT_UNIT_STRING; ?>
+    echo " " . WEIGHT_UNIT_STRING;
+    ?>
             </td>
             <td>
         <?php echo date("F j, Y, g:i a", strtotime($pallet['palletdate'])); ?>
