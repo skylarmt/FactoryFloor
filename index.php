@@ -35,10 +35,14 @@ redirectifnotloggedin();
                 case 'edituser':
                     include 'pages/edituser.php';
                     break;
-                case 'home':
                 case 'tasks':
+                    include 'pages/tasks.php';
+                    break;
                 case 'tasklist':
+                    include 'pages/tasklist.php';
+                    break;
                 case '':
+                case 'home':
                     include 'pages/home.php';
                     break;
                 case 'palletlist':

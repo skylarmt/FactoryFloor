@@ -20,7 +20,7 @@ if (is_empty($_POST['taskid'])) {
     header('Location: /?action=edittask&taskid=' . $newid);
 } else {
     $database->update('tasks', ['tasktitle' => $_POST['tasktitle'], 'taskdesc' => $_POST['taskdesc']], ['taskid' => $_POST['taskid']]);
-    header('HTTP/1.0 204 No Content');
+    header('Location: /?action=edittask&taskid=' . $_POST['taskid']); //header('HTTP/1.0 204 No Content');
 }
 
 if (checkIsAValidDate($_POST['taskassignedon'])) {

@@ -1,3 +1,11 @@
+<?php
+if ($_GET['action'] == 'userlist') {
+    // We're not on the home page, show a header
+    ?>
+<h1 class="page-header">Users</h1>
+    <?php
+}
+?>
 <div class="well well-sm hidden-print">
     <a href="/?action=edituser" class="btn btn-sm btn-primary"><i class="fa fa-user-plus"></i> New user</a>
 </div>

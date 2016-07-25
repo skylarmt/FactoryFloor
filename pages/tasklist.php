@@ -1,3 +1,11 @@
+<?php
+if ($_GET['action'] == 'tasklist') {
+    // We're not on the home page, show a header
+    ?>
+<h1 class="page-header">Tasks</h1>
+    <?php
+}
+?>
 <div class="well well-sm">
     <a href="/?action=edittask" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> New task</a>
 </div>
