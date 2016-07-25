@@ -43,6 +43,7 @@ if (!is_empty($taskid) && $database->has('assigned_tasks', ['taskid' => $taskid]
     </select>
     <br />
     Assigned on: <input type="date" class="form-control" name="taskassignedon" value="<?php echo $task['taskassignedon']; ?>" />
+    <p><i class="fa fa-info-circle"></i> Protip: You can type "now" to save time.</p>
     <br />
     Due by: <input type="date" class="form-control" name="taskdueby" value="<?php echo $task['taskdueby']; ?>"/>
     <br />

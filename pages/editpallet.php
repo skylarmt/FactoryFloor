@@ -36,7 +36,7 @@ if (!is_empty($palletid)) {
     <br />
     Date:
     <input type="datetime" name="palletdate" placeholder="12/30/16" required="required" class="form-control" value="<?php echo $pallet['palletdate']; ?>"/>
-    <p><i>Protip: You can type "today" into the date box to save time.</i></p>
+    <p><i>Protip: You can type "now" into the date box to automatically insert the current date and time.</i></p>
     <br />
     Items on Pallet:
     <input type="text" placeholder="Type to search" id="itemfilterbox" class="form-control"/>
