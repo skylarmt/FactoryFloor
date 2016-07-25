@@ -9,12 +9,15 @@ switch ($_GET['type']) {
         $type = 'code39';
 }
 
-$img;
+$img = imagecreatetruecolor(1000, 200);
+$white = imagecolorallocate($img, 255, 255, 255);
+$black = imagecolorallocate($img, 0, 0, 0);
+imagefill($img, 0, 0, $white);
 if ($type == 'code39') {
     $data = "*" . strtoupper($data) . "*";
-    $img = imagecreatetruecolor(600, 600);
-    imagettftext($img, 100, 0, 10, 600, imagecolorallocate($img, 0, 0, 0), "fonts/free3of9.ttf", $data);
+    //echo "$data";
+    imagettftext($img, 180, 0, 30, 190, $black, "fonts/free3of9.ttf", $data);
 }
 
-header('Content-Type: image/png');
-imagepng($img);
+header('Content-Type: image/jpeg');
+imagejpeg($img);
