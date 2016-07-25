@@ -19,14 +19,17 @@
                     $userrole = $database->select('users', 'userroles_roleid', ['userid' => $_SESSION['userid']])[0];
                     if ($userrole == 0) {
                         ?>
-                        <li><a href="/?action=tasks">My Tasks</a></li>
+                        <li><a href="/?action=home">Home</a></li>
                         <?php
                     } else if ($userrole == 1) {
                         ?>
-                        <li><a href="/?action=tasklist">Tasks</a></li>
+                        <li><a href="/?action=home">Home</a></li>
                         <li><a href="/?action=userlist">Users</a></li>
                         <?php
                     }
+                    ?>
+                    <li><a href="/?action=palletlist">Pallets</a></li>
+                    <?php
                 }
                 ?>
             </ul>
@@ -36,7 +39,7 @@
                 <?php } else { ?>
                     <li><a href="/dologout.php">Log Out</a></li>
                     <li><p class="navbar-text"><i class="fa fa-user"></i> <?php echo realnamefromid($_SESSION['userid']); ?></p></li>
-                <?php } ?>
+                    <?php } ?>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

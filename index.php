@@ -41,6 +41,15 @@ redirectifnotloggedin();
                 case '':
                     include 'pages/home.php';
                     break;
+                case 'palletlist':
+                    include 'pages/palletlist.php';
+                    break;
+                case 'editpallet':
+                    include 'pages/editpallet.php';
+                    break;
+                case 'printpallet':
+                    include 'pages/printpallet.php';
+                    break;
                 case 'userlist':
                     include 'pages/userlist.php';
                     break;
@@ -50,5 +59,6 @@ redirectifnotloggedin();
             }
             ?>
         </div>
+        <br />
     </body>
 </html>

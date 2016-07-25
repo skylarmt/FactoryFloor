@@ -20,8 +20,6 @@ header("Access-Control-Allow-Origin: *");
 
 // Composer
 require 'vendor/autoload.php';
-// Settings file
-require 'dbsettings.php';
 
 // Database settings
 // Also inits database and stuff
@@ -32,6 +30,8 @@ try {
     header('HTTP/1.1 500 Internal Server Error');
     die('Database error.  Try again later.');
 }
+
+require 'unitsettings.php';
 
 // Show errors and stuff?
 define("DEBUG", false);
