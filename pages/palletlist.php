@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <?php
-    $pallets = $database->select('pallets', '*', ['LIMIT' => 30]);
+    $pallets = $database->select('pallets', '*');
     foreach ($pallets as $pallet) {
         ?>
         <tr>
