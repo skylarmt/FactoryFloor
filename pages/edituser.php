@@ -44,7 +44,7 @@ if (!is_empty($userid)) {
             prettysave();
         </script>
     <?php } ?>
-    <a class="btn btn-warning" href="./?action=userlist"><i class="fa fa-times"></i> Cancel</a>
+    <a class="btn btn-warning" href="./?action=userlist"><i class="fa fa-times"></i> Exit</a>
 </form>
 <script>
     function clearpretty() {

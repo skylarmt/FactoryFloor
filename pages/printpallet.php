@@ -13,8 +13,7 @@ if (!is_empty($palletid)) {
     $items = $database->select('pallet_items', 'catid', ['palletid' => $palletid]);
 }
 ?>
-<a href="javascript:window.print()" class="btn btn-info pull-right hidden-print"><i class="fa fa-print"></i> Print</a>
-<a href="./?action=palletlist" class="btn btn-info pull-right hidden-print"><i class="fa fa-times"></i> Exit</a>
+<span class="pull-right hidden-print"><a href="javascript:window.print()" class="btn btn-info"><i class="fa fa-print"></i> Print</a> <a href="./?action=palletlist" class="btn btn-warning"><i class="fa fa-times"></i> Exit</a></span>
 <h1 class="h3">Helena Industries Big Sky E-Recycling<!-- <span class="pull-right">CyclePoint</span> --></h1>
 <h2 class="h4">Pallet Inventory Label</h2>
 <div class="row">

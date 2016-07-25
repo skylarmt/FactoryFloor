@@ -1,4 +1,4 @@
-<div class="well well-sm">
+<div class="well well-sm hidden-print">
     <a href="/?action=edituser" class="btn btn-sm btn-primary"><i class="fa fa-user-plus"></i> New user</a>
 </div>
 <?php
@@ -15,7 +15,7 @@ foreach ($users as $user) {
                     <form action='/?action=edituser' method='POST' class='form-inline' style='display: inline-block;'>
                         <input type='hidden' name='userid' value='<?php echo $user['userid']; ?>' />
                         <input type='hidden' name='action' value='edit' />
-                        <button type='submit' class='btn btn-sm btn-link' style="margin-top: -5px; margin-right: -5px;"><i class='fa fa-pencil'></i></button>
+                        <button type='submit' class='hidden-print btn btn-sm btn-link' style="margin-top: -5px; margin-right: -5px;"><i class='fa fa-pencil'></i></button>
                     </form>
                 </span>
             </h3>

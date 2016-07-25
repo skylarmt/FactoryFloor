@@ -52,7 +52,7 @@ if (!is_empty($taskid) && $database->has('assigned_tasks', ['taskid' => $taskid]
             prettysave();
         </script>
     <?php } ?>
-    <a class="btn btn-warning" href="./"><i class="fa fa-times"></i> Cancel</a>
+    <a class="btn btn-warning" href="./"><i class="fa fa-times"></i> Exit</a>
 </form>
 <script>
     function clearpretty() {
