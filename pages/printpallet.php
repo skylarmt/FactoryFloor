@@ -14,12 +14,13 @@ if (!is_empty($palletid)) {
 }
 ?>
 <a href="javascript:window.print()" class="btn btn-info pull-right hidden-print"><i class="fa fa-print"></i> Print</a>
+<a href="./?action=palletlist" class="btn btn-info pull-right hidden-print"><i class="fa fa-times"></i> Exit</a>
 <h1 class="h3">Helena Industries Big Sky E-Recycling<!-- <span class="pull-right">CyclePoint</span> --></h1>
 <h2 class="h4">Pallet Inventory Label</h2>
 <div class="row">
     <div class="col-xs-12 col-sm-6">
         <h1>Pallet #: <?php echo $pallet['palletid']; ?></h1>
-        <img class="img-responsive" src="makebarcode.php?data=<?php echo $pallet['palletid']; ?>&type=code39" />
+        <img class="img-responsive" src="makebarcode.php?data=P<?php echo $pallet['palletid']; ?>&type=code39" />
     </div>
     <div class="col-xs-12 col-sm-6">
         <div class="pull-right">

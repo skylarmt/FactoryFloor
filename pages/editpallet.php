@@ -64,7 +64,7 @@ if (!is_empty($palletid)) {
     </textarea>
     <br />
     <button id="savebtn" type="submit" class="btn btn-success"><i class="fa fa-floppy-o"></i> Save Pallet</button>
-    <a class="btn btn-warning" href="./?action=palletlist"><i class="fa fa-times"></i> Cancel</a>
+    <a class="btn btn-warning" href="./?action=palletlist"><i class="fa fa-times"></i> Exit</a>
     <?php if (!is_empty($palletid)) { ?>
         <a class="btn btn-info" href="./?action=printpallet&palletid=<?php echo $palletid; ?>"><i class="fa fa-print"></i> Print Label</a>
     <?php } ?>

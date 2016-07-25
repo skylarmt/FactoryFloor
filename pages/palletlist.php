@@ -4,7 +4,9 @@
         <a href="/?action=editpallet" class="btn btn-primary"><i class="fa fa-plus"></i> New Pallet</a>
     </span>
 </h1>
-<table class="table table-bordered">
+<input type="text" id="palletsearchbox" class="form-control" placeholder="Type to search" />
+<br />
+<table class="table table-bordered" id="pallettable">
     <thead>
         <tr>
             <th class="hidden-print">Actions</th>
@@ -26,7 +28,7 @@
                 <a href="/?action=printpallet&palletid=<?php echo $pallet['palletid']; ?>" class="btn btn-sm btn-info"><i class="fa fa-print"></i></a>
             </td>
             <td>
-                <?php echo $pallet['palletid']; ?>
+                <span style="display: none;">P<?php echo $pallet['palletid']; ?>P</span><?php echo $pallet['palletid']; ?>
             </td>
             <td>
                 <?php
@@ -38,19 +40,26 @@
                 ?>
             </td>
             <td>
-                <?php echo $pallet['palletweight'] + 0; echo " " . WEIGHT_UNIT_STRING; ?>
+                <?php echo $pallet['palletweight'] + 0;
+                echo " " . WEIGHT_UNIT_STRING; ?>
             </td>
             <td>
-                <?php echo $pallet['boxweight'] + 0; echo " " . WEIGHT_UNIT_STRING; ?>
+    <?php echo $pallet['boxweight'] + 0;
+    echo " " . WEIGHT_UNIT_STRING; ?>
             </td>
             <td>
-                <?php echo $pallet['totalweight'] + 0; echo " " . WEIGHT_UNIT_STRING; ?>
+                <?php echo $pallet['totalweight'] + 0;
+                echo " " . WEIGHT_UNIT_STRING; ?>
             </td>
             <td>
-                <?php echo date("F j, Y, g:i a", strtotime($pallet['palletdate'])); ?>
+        <?php echo date("F j, Y, g:i a", strtotime($pallet['palletdate'])); ?>
             </td>
         </tr>
-        <?php
-    }
-    ?>
+    <?php
+}
+?>
 </table>
+<script src="js/tablesearch.js"></script>
+<script>
+    bindsearch('#palletsearchbox', '#pallettable');
+</script>
