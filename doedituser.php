@@ -13,6 +13,10 @@ if (is_empty($_POST['username']) || is_empty($_POST['realname']) || is_empty($_P
     die('Missing required information.  Please use the correct form.');
 }
 
+if (is_empty($_POST['pin'])) {
+    $_POST['pin'] = '0000';
+}
+
 if (!$database->has('userroles', ['roleid' => $_POST['roleid']])) {
     die('Invalid role id.');
 }
