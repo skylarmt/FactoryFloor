@@ -24,7 +24,7 @@ if (!$database->has('userroles', ['roleid' => $_POST['roleid']])) {
 if (is_empty($_POST['userid'])) {
     $newid = $database->insert('users', ['username' => $_POST['username'], 'realname' => $_POST['realname'], 'pin' => $_POST['pin'], 'contactinfo' => $_POST['contactinfo'], 'userroles_roleid' => $_POST['roleid']]);
     $_POST['userid'] = $newid;
-    header('Location: /?action=edituser&userid=' . $newid);
+    header('Location: ./?action=edituser&userid=' . $newid);
 } else {
     $database->update('users', ['username' => $_POST['username'], 'realname' => $_POST['realname'], 'pin' => $_POST['pin'], 'contactinfo' => $_POST['contactinfo'], 'userroles_roleid' => $_POST['roleid']], ['userid' => $_POST['userid']]);
     header('HTTP/1.0 204 No Content');

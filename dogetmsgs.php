@@ -28,7 +28,7 @@ if (count($messages) > 0) {
                         if (userrolefromid($_SESSION['userid']) > 0) {
                             ?>
                             <form style="display: inline-block;"
-                                  action="/dodeletemsg.php" method="GET"
+                                  action="dodeletemsg.php" method="GET"
                                   onsubmit="$('#delmsgbtn<?php echo $msg['messageid']; ?>').prop('disabled', true);">
                                 <input type="hidden" name="msgid" value="<?php echo $msg['messageid']; ?>" />
                                 <button type="submit" id="delmsgbtn<?php echo $msg['messageid']; ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>

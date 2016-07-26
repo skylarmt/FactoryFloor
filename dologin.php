@@ -9,7 +9,7 @@ if (is_empty($pin)) {
 }
 
 if (is_empty($user)) {
-    header('Location: /?action=login&err=nouser');
+    header('Location: ./?action=login&err=nouser');
     die();
 }
 
@@ -19,10 +19,10 @@ if ($database->has('users', ['userid' => $user])) {
         $_SESSION['loggedin'] = true;
         header('Location: /');
     } else {
-        header('Location: /?action=login&err=badpin');
+        header('Location: ./?action=login&err=badpin');
         die();
     }
 } else {
-    header('Location: /?action=login&err=invaliduser');
+    header('Location: ./?action=login&err=invaliduser');
     die();
 }

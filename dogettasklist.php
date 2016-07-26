@@ -51,7 +51,7 @@ if (count($tasks) > 0) {
         . "</div>"
         . "<div class='col-xs-12 col-sm-4 col-md-4'>"
         . "<div class='pull-right'>";
-        echo "<form action='/?action=edittask' method='POST' class='form-inline' style='display: inline-block;'>"
+        echo "<form action='./?action=edittask' method='POST' class='form-inline' style='display: inline-block;'>"
         . "<input type='hidden' name='taskid' value='" . $task['taskid'] . "' />"
         . "<input type='hidden' name='action' value='edit' />"
         . "<button type='submit' class='btn btn-sm btn-primary'><i class='fa fa-pencil'></i></button>"

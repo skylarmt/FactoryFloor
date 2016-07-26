@@ -1,7 +1,7 @@
 <h1 class="page-header hidden-print">
     Pallets
     <span class="pull-right">
-        <a href="/?action=editpallet" class="btn btn-primary"><i class="fa fa-plus"></i> New Pallet</a> 
+        <a href="./?action=editpallet" class="btn btn-primary"><i class="fa fa-plus"></i> New Pallet</a> 
         <a href="/downloadpalletcsv.php" class="btn btn-info"><i class="fa fa-table"></i> Export CSV</a> 
     </span>
 </h1>
@@ -25,8 +25,8 @@
         ?>
         <tr>
             <td class="hidden-print">
-                <a href="/?action=editpallet&palletid=<?php echo $pallet['palletid']; ?>" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
-                <a href="/?action=printpallet&palletid=<?php echo $pallet['palletid']; ?>" class="btn btn-sm btn-info"><i class="fa fa-print"></i></a>
+                <a href="./?action=editpallet&palletid=<?php echo $pallet['palletid']; ?>" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
+                <a href="./?action=printpallet&palletid=<?php echo $pallet['palletid']; ?>" class="btn btn-sm btn-info"><i class="fa fa-print"></i></a>
             </td>
             <td>
                 <span style="display: none;">P<?php echo $pallet['palletid']; ?>P</span><?php echo $pallet['palletid']; ?>
