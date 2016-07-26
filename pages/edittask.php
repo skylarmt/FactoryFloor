@@ -35,7 +35,7 @@ if (!is_empty($taskid) && $database->has('assigned_tasks', ['taskid' => $taskid]
             <option value="" selected>Nobody</option>
             <?php
         }
-        $userlist = $database->select("users", ['userid', 'username', 'realname'], ['userroles_roleid[<]' => 1]);
+        $userlist = $database->select("users", ['userid', 'username', 'realname']/*, ['userroles_roleid[<]' => 1]*/);
         foreach ($userlist as $user) {
             echo "<option value=\"" . $user['userid'] . "\" " . ($tass['userid'] == $user['userid'] ? "selected" : "") . " >" . $user['username'] . " (" . $user['realname'] . ")" . "</option>";
         }

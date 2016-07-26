@@ -14,23 +14,24 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+                <li><a href="/?action=home">Home</a></li>
                 <?php
                 if ($_SESSION['loggedin'] == true) {
                     $userrole = $database->select('users', 'userroles_roleid', ['userid' => $_SESSION['userid']])[0];
                     if ($userrole == 0) {
                         ?>
-                        <li><a href="/?action=home">Home</a></li>
-                        <li><a href="/?action=tasks">My Tasks</a></li>
+                        
                         <?php
                     } else if ($userrole == 1) {
                         ?>
-                        <li><a href="/?action=home">Home</a></li>
+                        
                         <li><a href="/?action=tasklist">Tasks</a></li>
                         <li><a href="/?action=userlist">Users</a></li>
                         <?php
                     }
                     ?>
                     <li><a href="/?action=palletlist">Pallets</a></li>
+                    <li><a href="/?action=tasks">My Tasks</a></li>
                     <?php
                 }
                 ?>
