@@ -5,7 +5,7 @@
         <a href="/downloadpalletcsv.php" class="btn btn-info"><i class="fa fa-table"></i> Export CSV</a> 
     </span>
 </h1>
-<input type="text" id="palletsearchbox" class="form-control" placeholder="Type to search" />
+<input type="text" id="palletsearchbox" class="form-control hidden-print" placeholder="Type to search" />
 <br />
 <table class="table table-bordered" id="pallettable">
     <thead>
